@@ -2,7 +2,6 @@
   "name": "obsidian-svelte-lerna",
   "version": "dev",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "check": "lerna run check",
