@@ -1,0 +1,9 @@
+{
+  "version": "0.0.7",
+  "command": {
+    "version": {
+      "allowBranch": ["main"]
+    }
+  },
+  "packages": ["packages/*"]
+}

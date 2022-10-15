@@ -1,0 +1,26 @@
+{
+  "name": "obsidian-svelte-lerna",
+  "version": "dev",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check": "lerna run check",
+    "clean": "lerna run clean",
+    "lint": "prettier --check --plugin-search-dir=. .",
+    "format": "prettier --write --plugin-search-dir=. ."
+  },
+  "keywords": [],
+  "author": "Marcus Olsson",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcusolsson/obsidian-svelte.git"
+  },
+  "devDependencies": {
+    "lerna": "^6.0.1",
+    "prettier": "^2.7.1",
+    "prettier-plugin-svelte": "^2.8.0",
+    "svelte": "^3.51.0"
+  }
+}
