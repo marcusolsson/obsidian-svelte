@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createEventDispatcher } from "svelte";
+	import { createEventDispatcher } from 'svelte';
 
 	/**
 	 * Specifies the link text.
@@ -29,12 +29,13 @@
 	target="_blank"
 	rel="noopener"
 	on:click={(event) => {
-		dispatch("open", {
+		event.stopPropagation();
+
+		dispatch('open', {
 			linkText,
 			sourcePath,
-			newLeaf: event.ctrlKey || event.metaKey,
+			newLeaf: event.ctrlKey || event.metaKey
 		});
-		event.preventDefault();
 	}}
 >
 	<slot />
