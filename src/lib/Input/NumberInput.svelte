@@ -44,6 +44,11 @@
 	export let embed: boolean = false;
 
 	/**
+	 * Specifies whether to remove the default padding.
+	 */
+	export let noPadding: boolean = false;
+
+	/**
 	 * Specifies an helper message for the input.
 	 */
 	export let helperText: string = '';
@@ -68,6 +73,7 @@
 	{autoFocus}
 	{width}
 	{embed}
+	{noPadding}
 	{error}
 	{helperText}
 	on:input={handleInput}

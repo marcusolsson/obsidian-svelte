@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { createEventDispatcher } from "svelte";
-	import Input from "./Input.svelte";
+	import { createEventDispatcher } from 'svelte';
+	import Input from './Input.svelte';
 
 	/**
 	 * Specifies the input value.
@@ -15,7 +15,7 @@
 	/**
 	 * Specifies the placeholder text.
 	 */
-	export let placeholder: string = "";
+	export let placeholder: string = '';
 
 	/**
 	 * Specifies whether to focus the input when it's mounted.
@@ -25,7 +25,7 @@
 	/**
 	 * Specifies the width of the input.
 	 */
-	export let width: string = "auto";
+	export let width: string = 'auto';
 
 	/**
 	 * Specifies whether the input contains an error.
@@ -35,7 +35,7 @@
 	/**
 	 * Specifies an helper message for the input.
 	 */
-	export let helperText: string = "";
+	export let helperText: string = '';
 
 	/**
 	 * Specifies whether to remove styles to embed the input in another
@@ -44,13 +44,18 @@
 	export let embed: boolean = false;
 
 	/**
+	 * Specifies whether to remove the default padding.
+	 */
+	export let noPadding: boolean = false;
+
+	/**
 	 * Specifies the reference for the underlying input element.
 	 */
 	export let ref: HTMLInputElement | null = null;
 
 	const dispatch = createEventDispatcher<{ input: string }>();
 
-	$: dispatch("input", value);
+	$: dispatch('input', value);
 
 	function handleInput(event: Event) {
 		if (event.currentTarget instanceof HTMLInputElement) {
@@ -64,6 +69,7 @@
 	bind:ref
 	bind:value
 	{readonly}
+	{noPadding}
 	{placeholder}
 	{autoFocus}
 	{width}
