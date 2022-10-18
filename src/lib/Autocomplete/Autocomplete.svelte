@@ -46,16 +46,8 @@
 
 	const dispatch = createEventDispatcher<{
 		change: string;
-		open: void;
-		close: void;
 		blur: FocusEvent;
 	}>();
-
-	$: if (open) {
-		dispatch("open");
-	} else {
-		dispatch("close");
-	}
 
 	let willClose = false;
 
