@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
+	import { createEventDispatcher } from "svelte";
 
 	/**
 	 * Specifies whether the checkbox is checked.
@@ -15,14 +15,14 @@
 
 	const dispatch = createEventDispatcher<{ check: boolean }>();
 
-	$: dispatch('check', checked);
+	$: dispatch("check", checked);
 
 	$: {
 		if (ref) {
 			if (checked) {
-				ref.classList.add('is-enabled');
+				ref.classList.add("is-enabled");
 			} else {
-				ref.classList.remove('is-enabled');
+				ref.classList.remove("is-enabled");
 			}
 		}
 	}

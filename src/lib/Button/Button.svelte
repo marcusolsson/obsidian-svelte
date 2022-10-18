@@ -1,10 +1,10 @@
 <script lang="ts">
-	type ButtonVariant = 'default' | 'destructive' | 'primary' | 'plain';
+	type ButtonVariant = "default" | "destructive" | "primary" | "plain";
 
 	/**
 	 * Specifies the variant of the button.
 	 */
-	export let variant: ButtonVariant = 'default';
+	export let variant: ButtonVariant = "default";
 
 	/**
 	 * Specifies whether the button is disabled.
@@ -14,13 +14,13 @@
 	/**
 	 * Specifies the text to display when hovering the button.
 	 */
-	export let tooltip: string = '';
+	export let tooltip: string = "";
 </script>
 
 <button
-	class:mod-cta={variant === 'primary'}
-	class:mod-warning={variant === 'destructive'}
-	class:mod-plain={variant === 'plain'}
+	class:mod-cta={variant === "primary"}
+	class:mod-warning={variant === "destructive"}
+	class:mod-plain={variant === "plain"}
 	aria-label={tooltip}
 	on:click
 	{disabled}

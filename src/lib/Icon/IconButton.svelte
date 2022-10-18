@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { useIcon } from '.';
+	import { useIcon } from ".";
 
 	/**
 	 * Specifies the icon identifier. Visit https://lucide.dev for all valid
@@ -10,7 +10,7 @@
 	/**
 	 * Specifies the width and height of the icon in pixels. Defaults to 16px.
 	 */
-	export let size: 'xs' | 'sm' | 'md' | 'lg' = 'md';
+	export let size: "xs" | "sm" | "md" | "lg" = "md";
 
 	/**
 	 * Specifies whether icon is active.
@@ -20,7 +20,7 @@
 	/**
 	 * Specifies the tooltip.
 	 */
-	export let tooltip: string = '';
+	export let tooltip: string = "";
 
 	/**
 	 * Specifies whether to remove the default padding.
@@ -32,10 +32,10 @@
 	class="clickable-icon"
 	class:nopadding
 	class:is-active={active}
-	class:icon-xs={size === 'xs'}
-	class:icon-sm={size === 'sm'}
-	class:icon-md={size === 'md'}
-	class:icon-lg={size === 'lg'}
+	class:icon-xs={size === "xs"}
+	class:icon-sm={size === "sm"}
+	class:icon-md={size === "md"}
+	class:icon-lg={size === "lg"}
 	aria-label={tooltip}
 	use:useIcon={icon}
 	on:click

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Autocomplete } from './';
-	import type { TAbstractFile } from 'obsidian';
+	import { Autocomplete } from "./";
+	import type { TAbstractFile } from "obsidian";
 
 	/**
 	 * Specify the text input value.
@@ -20,20 +20,20 @@
 	/**
 	 * Specify a function to format the description.
 	 */
-	export let getDescription: (file: TAbstractFile) => string = () => '';
+	export let getDescription: (file: TAbstractFile) => string = () => "";
 
 	/**
 	 * Input props.
 	 */
 	export let embed: boolean = false;
 	export let readonly: boolean = false;
-	export let placeholder: string = '';
-	export let width: string = 'auto';
+	export let placeholder: string = "";
+	export let width: string = "auto";
 	export let autoFocus: boolean = false;
 
 	$: options = files.map((file) => ({
 		label: getLabel(file),
-		description: getDescription(file)
+		description: getDescription(file),
 	}));
 </script>
 

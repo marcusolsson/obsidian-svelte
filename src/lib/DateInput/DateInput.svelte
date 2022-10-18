@@ -21,7 +21,7 @@
 				value.getFullYear(),
 				value.getMonth(),
 				value.getDate(),
-				12
+				12,
 			);
 		}
 	}

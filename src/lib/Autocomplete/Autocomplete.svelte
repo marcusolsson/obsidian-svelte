@@ -38,7 +38,9 @@
 
 	$: filteredOptions = options
 		.filter(
-			(option) => !value || option.label.toLocaleLowerCase().contains(value.toLocaleLowerCase()),
+			(option) =>
+				!value ||
+				option.label.toLocaleLowerCase().contains(value.toLocaleLowerCase()),
 		)
 		.slice(0, Math.min(maxItems, options.length));
 

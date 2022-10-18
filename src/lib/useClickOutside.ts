@@ -1,6 +1,6 @@
 export function useClickOutside(
 	element: HTMLElement,
-	callbackFunction: () => void
+	callbackFunction: () => void,
 ) {
 	function onClick(event: any) {
 		if (!element.contains(event.target)) {

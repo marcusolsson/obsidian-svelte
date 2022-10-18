@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Switch } from '../Switch';
-	import { useIcon } from '../Icon';
+	import { Switch } from "../Switch";
+	import { useIcon } from "../Icon";
 
-	import { createEventDispatcher } from 'svelte';
+	import { createEventDispatcher } from "svelte";
 
 	/**
 	 * Specifies the text label.
@@ -14,7 +14,7 @@
 	/**
 	 * Specifies the icon.
 	 */
-	export let icon: string = '';
+	export let icon: string = "";
 
 	/**
 	 * Specifies whether the menu item is checked.
@@ -23,7 +23,7 @@
 
 	const dispatch = createEventDispatcher<{ check: boolean }>();
 
-	$: dispatch('check', checked);
+	$: dispatch("check", checked);
 </script>
 
 <div

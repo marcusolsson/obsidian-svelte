@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { useIcon } from '../Icon';
+	import { useIcon } from "../Icon";
 
 	/**
 	 * Specifies the title of the callout.
@@ -15,20 +15,25 @@
 	 * Specifies the variant of callout, which determines the color.
 	 */
 	export let variant:
-		| 'info'
-		| 'todo'
-		| 'tip'
-		| 'success'
-		| 'question'
-		| 'warning'
-		| 'failure'
-		| 'danger'
-		| 'bug'
-		| 'example'
-		| 'quote';
+		| "info"
+		| "todo"
+		| "tip"
+		| "success"
+		| "question"
+		| "warning"
+		| "failure"
+		| "danger"
+		| "bug"
+		| "example"
+		| "quote";
 </script>
 
-<div data-callout-metadata data-callout-fold data-callout={variant} class="callout">
+<div
+	data-callout-metadata
+	data-callout-fold
+	data-callout={variant}
+	class="callout"
+>
 	<div class="callout-title">
 		<div use:useIcon={icon} class="callout-icon" />
 		<div class="callout-title-inner">{title}</div>

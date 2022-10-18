@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { createEventDispatcher, onMount } from 'svelte';
+	import { createEventDispatcher, onMount } from "svelte";
 
 	/**
 	 * Specifies the type of input.
 	 */
-	export let type: 'text' | 'number';
+	export let type: "text" | "number";
 
 	/**
 	 * Specifies the input value.
@@ -24,7 +24,7 @@
 	/**
 	 * Specifies the placeholder text.
 	 */
-	export let placeholder: string = '';
+	export let placeholder: string = "";
 
 	/**
 	 * Specifies whether to focus the input when it's mounted.
@@ -34,7 +34,7 @@
 	/**
 	 * Specifies the width of the input.
 	 */
-	export let width: string = 'auto';
+	export let width: string = "auto";
 
 	/**
 	 * Specifies whether the input contains an error.
@@ -55,11 +55,11 @@
 	/**
 	 * Specifies an message for the input.
 	 */
-	export let helperText: string = '';
+	export let helperText: string = "";
 
 	const dispatch = createEventDispatcher<{ input: string | number | null }>();
 
-	$: dispatch('input', value);
+	$: dispatch("input", value);
 
 	onMount(() => {
 		if (autoFocus && ref) {

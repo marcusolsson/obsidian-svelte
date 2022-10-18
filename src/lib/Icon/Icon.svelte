@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { useIcon } from '../Icon';
+	import { useIcon } from "../Icon";
 
 	/**
 	 * Specifies the icon identifier. Visit https://lucide.dev for all valid
@@ -10,7 +10,7 @@
 	/**
 	 * Specifies the icon size.
 	 */
-	export let size: 'xs' | 'sm' | 'md' | 'lg' = 'md';
+	export let size: "xs" | "sm" | "md" | "lg" = "md";
 
 	/**
 	 * Specifies whether to invert the icon color on accent backgrounds.
@@ -20,15 +20,15 @@
 	/**
 	 * Specifies the tooltip text.
 	 */
-	export let tooltip: string = '';
+	export let tooltip: string = "";
 </script>
 
 <span
 	class:accent
-	class:icon-xs={size === 'xs'}
-	class:icon-sm={size === 'sm'}
-	class:icon-md={size === 'md'}
-	class:icon-lg={size === 'lg'}
+	class:icon-xs={size === "xs"}
+	class:icon-sm={size === "sm"}
+	class:icon-md={size === "md"}
+	class:icon-lg={size === "lg"}
 	aria-label={tooltip}
 	use:useIcon={name}
 />

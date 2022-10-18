@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
+	import { createEventDispatcher } from "svelte";
 
-	import SelectItem from './SelectItem.svelte';
+	import SelectItem from "./SelectItem.svelte";
 
 	/**
 	 * Specifies the available options.
@@ -16,7 +16,7 @@
 	/**
 	 * Specifies the placeholder text.
 	 */
-	export let placeholder: string = '';
+	export let placeholder: string = "";
 
 	/**
 	 * Specifies whether to allow empty values.
@@ -27,7 +27,7 @@
 
 	function handleChange(event: Event) {
 		if (event.currentTarget instanceof HTMLSelectElement) {
-			dispatch('change', event.currentTarget.value);
+			dispatch("change", event.currentTarget.value);
 		}
 	}
 </script>
