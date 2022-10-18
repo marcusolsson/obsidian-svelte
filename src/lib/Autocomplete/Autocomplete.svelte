@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
-	import { Suggestion, SuggestionItem } from '../Popover';
-	import { TextInput } from '../Input';
-	import type { Option } from './types';
+	import { createEventDispatcher } from "svelte";
+	import { Suggestion, SuggestionItem } from "../Popover";
+	import { TextInput } from "../Input";
+	import type { Option } from "./types";
 
 	/**
 	 * Specifies the text input value.
@@ -28,8 +28,8 @@
 	 * TextInput props
 	 */
 	export let readonly: boolean = false;
-	export let placeholder: string = '';
-	export let width: string = 'auto';
+	export let placeholder: string = "";
+	export let width: string = "auto";
 	export let embed: boolean = false;
 	export let autoFocus: boolean = false;
 
@@ -38,7 +38,7 @@
 
 	$: filteredOptions = options
 		.filter(
-			(option) => !value || option.label.toLocaleLowerCase().contains(value.toLocaleLowerCase())
+			(option) => !value || option.label.toLocaleLowerCase().contains(value.toLocaleLowerCase()),
 		)
 		.slice(0, Math.min(maxItems, options.length));
 
@@ -50,9 +50,9 @@
 	}>();
 
 	$: if (open) {
-		dispatch('open');
+		dispatch("open");
 	} else {
-		dispatch('close');
+		dispatch("close");
 	}
 
 	let willClose = false;
@@ -74,24 +74,24 @@
 	on:focus={() => (open = true)}
 	on:blur={(event) => {
 		open = false;
-		dispatch('change', value);
-		dispatch('blur', event);
+		dispatch("change", value);
+		dispatch("blur", event);
 	}}
 	on:input={() => (open = true)}
 	on:keydown={(event) => {
 		if (open) {
 			switch (event.key) {
-				case 'ArrowUp':
+				case "ArrowUp":
 					const prev = selected - 1;
 					selected = prev < 0 ? filteredOptions.length - 1 : prev;
 					event.stopPropagation();
 					break;
-				case 'ArrowDown':
+				case "ArrowDown":
 					const next = selected + 1;
 					selected = next > filteredOptions.length - 1 ? 0 : next;
 					event.stopPropagation();
 					break;
-				case 'Enter':
+				case "Enter":
 					value = filteredOptions[selected]?.label ?? value;
 					willClose = true;
 					break;
@@ -100,7 +100,7 @@
 	}}
 />
 
-<Suggestion anchorEl={inputRef} {open} on:close={close}>
+<Suggestion anchorEl={inputRef} {open} onClose={() => (open = false)}>
 	{#if !filteredOptions.length}
 		<SuggestionItem label="" description="No options" />
 	{/if}
@@ -111,7 +111,7 @@
 			selected={selected === i}
 			on:click={() => {
 				value = filteredOptions[i]?.label ?? value;
-				dispatch('change', value);
+				dispatch("change", value);
 			}}
 			on:select={({ detail }) => {
 				if (detail) {

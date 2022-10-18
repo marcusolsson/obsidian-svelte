@@ -7,7 +7,7 @@
 	} from "@popperjs/core";
 
 	import Portal from "svelte-portal";
-	import { onDestroy, createEventDispatcher } from "svelte";
+	import { onDestroy } from "svelte";
 	import { useClickOutside } from "./useClickOutside";
 
 	/**
@@ -24,6 +24,11 @@
 	 * Specifies whether the class name to use for the popover element.
 	 */
 	export let className: string = "popover layer";
+
+	/**
+	 * Specifies a function to run when the popover closes.
+	 */
+	export let onClose: () => void;
 
 	/**
 	 * Specifices where to place the menu in relation to the anchor element.
@@ -67,7 +72,9 @@
 		}
 	}
 
-	const dispatch = createEventDispatcher<{ close: void }>();
+	$: if (!open) {
+		onClose();
+	}
 
 	onDestroy(() => {
 		if (popper) {
@@ -84,7 +91,7 @@
 			use:useClickOutside={{
 				open,
 				anchorEl,
-				onClickOutside: () => dispatch("close"),
+				onClickOutside: () => (open = false),
 			}}
 		>
 			<slot />

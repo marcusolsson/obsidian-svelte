@@ -12,6 +12,11 @@
 	export let open: boolean;
 
 	/**
+	 * Specifies a function to run when the suggestions closes.
+	 */
+	export let onClose: () => void;
+
+	/**
 	 * Specifices where to place the menu in relation to the anchor element.
 	 */
 	export let placement:
@@ -37,7 +42,7 @@
 	{open}
 	{placement}
 	className="suggestion-container"
-	on:close
+	{onClose}
 >
 	<div class="suggestion" style="max-height: 300px;">
 		<slot />

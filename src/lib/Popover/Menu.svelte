@@ -12,6 +12,11 @@
 	export let open: boolean;
 
 	/**
+	 * Specifies a function to run when the menu closes.
+	 */
+	export let onClose: () => void;
+
+	/**
 	 * Specifices where to place the menu in relation to the anchor element.
 	 */
 	export let placement:
@@ -32,6 +37,6 @@
 		| "left-end" = "bottom-start";
 </script>
 
-<Popover {anchorEl} {open} {placement} className="menu" on:close>
+<Popover {anchorEl} {open} {placement} className="menu" {onClose}>
 	<slot />
 </Popover>

@@ -6,7 +6,7 @@ interface ClickOutsideProps {
 
 export function useClickOutside(
 	element: HTMLElement,
-	{ onClickOutside, anchorEl, open }: ClickOutsideProps
+	{ onClickOutside, anchorEl, open }: ClickOutsideProps,
 ) {
 	function onClick(event: any) {
 		if (
