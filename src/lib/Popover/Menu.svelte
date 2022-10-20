@@ -14,7 +14,7 @@
 	/**
 	 * Specifies a function to run when the menu closes.
 	 */
-	export let onClose: () => void;
+	export let onClose: () => void = () => {};
 
 	/**
 	 * Specifices where to place the menu in relation to the anchor element.
