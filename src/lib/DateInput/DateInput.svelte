@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { createEventDispatcher } from "svelte";
+	import dayjs, { Dayjs } from "dayjs";
 
 	/**
 	 * Specifies the date value.
 	 */
-	export let value: Date | null;
+	export let value: Dayjs | null;
 
 	/**
 	 * Specifies whether to remove decorations so that it can be embedded in other
@@ -12,32 +13,25 @@
 	 */
 	export let embed: boolean = false;
 
-	let ref: HTMLInputElement;
+	const dispatch = createEventDispatcher<{ change: Dayjs }>();
 
-	$: {
-		if (ref && value) {
-			// Trick to get the time zones right.
-			ref.valueAsDate = new Date(
-				value.getFullYear(),
-				value.getMonth(),
-				value.getDate(),
-				12,
-			);
-		}
+	$: if (value) {
+		dispatch("change", value);
 	}
-
-	const dispatch = createEventDispatcher<{ change: Date }>();
 
 	function handleChange(event: Event) {
 		if (event.currentTarget instanceof HTMLInputElement) {
-			if (event.currentTarget.valueAsDate) {
-				dispatch("change", event.currentTarget.valueAsDate);
-			}
+			value = dayjs(event.currentTarget.value);
 		}
 	}
 </script>
 
-<input class:embed bind:this={ref} type="date" on:change={handleChange} />
+<input
+	type="date"
+	class:embed
+	value={value ? value.format("YYYY-MM-DD") : null}
+	on:change={handleChange}
+/>
 
 <style>
 	input {
