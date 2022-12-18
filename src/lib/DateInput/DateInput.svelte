@@ -5,7 +5,7 @@
 	/**
 	 * Specifies the date value.
 	 */
-	export let value: Dayjs | null;
+	export let value: Date | null;
 
 	/**
 	 * Specifies whether to remove decorations so that it can be embedded in other
@@ -13,15 +13,16 @@
 	 */
 	export let embed: boolean = false;
 
-	const dispatch = createEventDispatcher<{ change: Dayjs }>();
-
-	$: if (value) {
-		dispatch("change", value);
-	}
+	const dispatch = createEventDispatcher<{ change: Date | null }>();
 
 	function handleChange(event: Event) {
 		if (event.currentTarget instanceof HTMLInputElement) {
-			value = dayjs(event.currentTarget.value);
+			dispatch(
+				"change",
+				event.currentTarget.value
+					? dayjs(event.currentTarget.value).toDate()
+					: null,
+			);
 		}
 	}
 </script>
@@ -29,7 +30,7 @@
 <input
 	type="date"
 	class:embed
-	value={value ? value.format("YYYY-MM-DD") : null}
+	value={value ? dayjs(value).format("YYYY-MM-DD") : null}
 	on:change={handleChange}
 />
 

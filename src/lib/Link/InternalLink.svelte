@@ -1,4 +1,7 @@
 <script lang="ts">
+	import Autocomplete from "$lib/Autocomplete/Autocomplete.svelte";
+	import Button from "$lib/Button/Button.svelte";
+	import Callout from "$lib/Callout/Callout.svelte";
 	import { createEventDispatcher } from "svelte";
 
 	/**
@@ -12,6 +15,11 @@
 	export let sourcePath: string;
 
 	/**
+	 * Specifies a tooltip to display when hovering the link.
+	 */
+	export let tooltip: string = "";
+
+	/**
 	 * Specifies whether the link is resolved.
 	 */
 	export let resolved: boolean;
@@ -19,6 +27,14 @@
 	const dispatch = createEventDispatcher<{
 		open: { linkText: string; sourcePath: string; newLeaf: boolean };
 	}>();
+
+	let aria = {};
+	if (tooltip) {
+		aria = {
+			"aria-label": tooltip,
+			"aria-label-position": "top",
+		};
+	}
 </script>
 
 <a
@@ -37,6 +53,7 @@
 			newLeaf: event.ctrlKey || event.metaKey,
 		});
 	}}
+	{...aria}
 >
 	<slot />
 </a>
