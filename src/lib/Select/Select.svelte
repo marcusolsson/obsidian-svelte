@@ -23,6 +23,11 @@
 	 */
 	export let allowEmpty: boolean = false;
 
+	/**
+	 * Specifies whether the select is disabled.
+	 */
+	export let disabled: boolean = false;
+
 	const dispatch = createEventDispatcher<{ change: string }>();
 
 	function handleChange(event: Event) {
@@ -33,7 +38,7 @@
 </script>
 
 <select
-	disabled={!options.length && !!placeholder}
+	disabled={disabled || (!options.length && !!placeholder)}
 	class="dropdown"
 	{value}
 	on:change={handleChange}

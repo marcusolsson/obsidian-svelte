@@ -1,7 +1,4 @@
 <script lang="ts">
-	import Autocomplete from "$lib/Autocomplete/Autocomplete.svelte";
-	import Button from "$lib/Button/Button.svelte";
-	import Callout from "$lib/Callout/Callout.svelte";
 	import { createEventDispatcher } from "svelte";
 
 	/**

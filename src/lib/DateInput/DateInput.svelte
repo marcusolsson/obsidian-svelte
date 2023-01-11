@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from "svelte";
-	import dayjs, { Dayjs } from "dayjs";
+	import dayjs from "dayjs";
 
 	/**
 	 * Specifies the date value.

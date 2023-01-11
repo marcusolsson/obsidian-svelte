@@ -15,9 +15,15 @@
 	 * Specifies the text to display when hovering the button.
 	 */
 	export let tooltip: string = "";
+
+	/**
+	 * Specifies the reference for the underlying button element.
+	 */
+	export let ref: HTMLButtonElement | null = null;
 </script>
 
 <button
+	bind:this={ref}
 	class:mod-cta={variant === "primary"}
 	class:mod-warning={variant === "destructive"}
 	class:mod-plain={variant === "plain"}
