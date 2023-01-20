@@ -38,5 +38,14 @@
 </script>
 
 <Popover {anchorEl} {open} {placement} className="menu" {onClose}>
-	<slot />
+	<div class="overflow">
+		<slot />
+	</div>
 </Popover>
+
+<style>
+	.overflow {
+		max-height: 300px;
+		overflow-y: auto;
+	}
+</style>
