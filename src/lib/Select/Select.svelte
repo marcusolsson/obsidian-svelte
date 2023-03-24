@@ -28,6 +28,11 @@
 	 */
 	export let disabled: boolean = false;
 
+	/**
+	 * Specifies the tooltip.
+	 */
+	export let tooltip: string = "";
+
 	const dispatch = createEventDispatcher<{ change: string }>();
 
 	function handleChange(event: Event) {
@@ -38,6 +43,7 @@
 </script>
 
 <select
+	aria-label={tooltip}
 	disabled={disabled || (!options.length && !!placeholder)}
 	class="dropdown"
 	{value}
