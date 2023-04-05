@@ -26,6 +26,11 @@
 	 * Specifies whether to remove the default padding.
 	 */
 	export let nopadding: boolean = false;
+
+	/**
+	 * Specifies whether the button is disabled.
+	 */
+	export let disabled: boolean = false;
 </script>
 
 <div
@@ -37,6 +42,7 @@
 	class:icon-md={size === "md"}
 	class:icon-lg={size === "lg"}
 	aria-label={tooltip}
+	aria-disabled={disabled}
 	use:useIcon={icon}
 	on:click
 	on:keypress
