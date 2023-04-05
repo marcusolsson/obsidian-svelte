@@ -31,6 +31,17 @@
 	 * Specifies whether the button is disabled.
 	 */
 	export let disabled: boolean = false;
+
+	/**
+	 * Specifies a callback for when the button is clicked.
+	 */
+	export let onClick: (event: MouseEvent) => void = () => {};
+
+	function handleClick(event: MouseEvent) {
+		if (!disabled) {
+			onClick(event);
+		}
+	}
 </script>
 
 <div
@@ -44,8 +55,7 @@
 	aria-label={tooltip}
 	aria-disabled={disabled}
 	use:useIcon={icon}
-	on:click
-	on:keypress
+	on:click={handleClick}
 />
 
 <style>
