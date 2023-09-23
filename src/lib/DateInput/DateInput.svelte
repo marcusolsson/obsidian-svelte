@@ -32,6 +32,7 @@
 	class:embed
 	value={value ? dayjs(value).format("YYYY-MM-DD") : null}
 	on:change={handleChange}
+	on:blur
 />
 
 <style>
