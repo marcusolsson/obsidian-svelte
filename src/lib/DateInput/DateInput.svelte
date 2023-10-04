@@ -32,6 +32,7 @@
 	class:embed
 	value={value ? dayjs(value).format("YYYY-MM-DD") : null}
 	on:change={handleChange}
+	on:blur
 />
 
 <style>
@@ -40,7 +41,7 @@
 		border: 0;
 		background-color: var(--background-modifier-hover);
 		font-family: var(--font-default);
-		padding: 0.1em 0.6em;
+		padding-left: var(--size-4-6);
 	}
 
 	.embed {
