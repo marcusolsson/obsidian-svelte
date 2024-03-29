@@ -18,14 +18,14 @@ export function useClickOutside(
 		}
 	}
 
-	document.body.addEventListener("click", onClick);
+	element.ownerDocument.body.addEventListener("click", onClick);
 
 	return {
 		update(props: ClickOutsideProps) {
 			onClickOutside = props.onClickOutside;
 		},
 		destroy() {
-			document.body.removeEventListener("click", onClick);
+			element.ownerDocument.body.removeEventListener("click", onClick);
 		},
 	};
 }
