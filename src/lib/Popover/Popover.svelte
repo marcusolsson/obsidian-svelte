@@ -6,7 +6,7 @@
 		type OptionsGeneric,
 	} from "@popperjs/core";
 
-	import Portal from "src/mocks/Portal.svelte";
+	import Portal from "./Portal.svelte";
 	import { onDestroy } from "svelte";
 	import { useClickOutside } from "./useClickOutside";
 
