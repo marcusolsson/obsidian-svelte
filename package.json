@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-svelte",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "svelte-kit sync && svelte-package",
