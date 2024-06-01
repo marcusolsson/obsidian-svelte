@@ -1,10 +1,11 @@
 <script lang="ts">
 	export let name: string | undefined = undefined;
 	export let description: string | undefined = undefined;
+	export let heading: boolean = false;
 	export let vertical: boolean = false;
 </script>
 
-<div class="setting-item" class:vertical>
+<div class="setting-item" class:setting-item-heading={heading} class:vertical>
 	<div class="setting-item-info">
 		<div class="setting-item-name">{name ?? ""}</div>
 		<div class="setting-item-description">{description ?? ""}</div>

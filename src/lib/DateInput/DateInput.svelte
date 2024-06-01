@@ -31,7 +31,9 @@
 	type="date"
 	class:embed
 	value={value ? dayjs(value).format("YYYY-MM-DD") : null}
+	max="9999-12-31"
 	on:change={handleChange}
+	on:blur
 />
 
 <style>

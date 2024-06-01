@@ -6,7 +6,7 @@
 		type OptionsGeneric,
 	} from "@popperjs/core";
 
-	import Portal from "svelte-portal";
+	import Portal from "./Portal.svelte";
 	import { onDestroy } from "svelte";
 	import { useClickOutside } from "./useClickOutside";
 
@@ -84,7 +84,7 @@
 </script>
 
 {#if open}
-	<Portal target={document.body}>
+	<Portal target={anchorEl.ownerDocument.body}>
 		<div
 			class={className}
 			bind:this={popperEl}
