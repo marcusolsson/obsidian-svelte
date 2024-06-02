@@ -5,6 +5,7 @@ export { Card } from "./Card";
 export { Checkbox } from "./Checkbox";
 export { ColorInput } from "./ColorInput";
 export { DateInput } from "./DateInput";
+export { DatetimeInput } from "./DatetimeInput";
 export { Icon, IconButton, useIcon } from "./Icon";
 export { InternalLink, Link } from "./Link";
 export { Loading } from "./Loading";
