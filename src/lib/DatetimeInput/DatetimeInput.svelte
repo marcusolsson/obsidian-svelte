@@ -30,7 +30,7 @@
 <input
 	type="datetime-local"
 	class:embed
-	value={value ? dayjs(value).format("YYYY-MM-DDHH:mm") : null}
+	value={value ? dayjs(value).format("YYYY-MM-DDTHH:mm") : null}
 	max="9999-12-31T23:59"
 	on:change={handleChange}
 	on:blur
