@@ -13,12 +13,26 @@
 	 */
 	export let embed: boolean = false;
 
-	const dispatch = createEventDispatcher<{ change: Date | null }>();
+	const dispatch = createEventDispatcher<{
+		change: Date | null;
+		input: Date | null;
+	}>();
 
 	function handleChange(event: Event) {
 		if (event.currentTarget instanceof HTMLInputElement) {
 			dispatch(
 				"change",
+				event.currentTarget.value
+					? dayjs(event.currentTarget.value).toDate()
+					: null,
+			);
+		}
+	}
+
+	function handleInput(event: Event) {
+		if (event.currentTarget instanceof HTMLInputElement) {
+			dispatch(
+				"input",
 				event.currentTarget.value
 					? dayjs(event.currentTarget.value).toDate()
 					: null,
@@ -33,6 +47,7 @@
 	value={value ? dayjs(value).format("YYYY-MM-DD") : null}
 	max="9999-12-31"
 	on:change={handleChange}
+	on:input={handleInput}
 	on:blur
 />
 
