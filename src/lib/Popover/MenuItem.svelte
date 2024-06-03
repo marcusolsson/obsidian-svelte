@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { Switch } from "../Switch";
 	import { useIcon } from "../Icon";
 
 	import { createEventDispatcher } from "svelte";
@@ -31,14 +30,16 @@
 	class:selected
 	on:mouseenter={() => (selected = true)}
 	on:mouseleave={() => (selected = false)}
-	on:click
+	on:click={() => {
+		if (checked !== undefined) checked = !checked;
+	}}
 	on:keypress
 >
-	{#if checked !== undefined}
-		<Switch {checked} on:check={({ detail: enabled }) => (checked = enabled)} />
-	{/if}
 	{#if icon}
 		<div class="menu-item-icon" use:useIcon={icon} />
 	{/if}
 	<div class="menu-item-title">{label}</div>
+	{#if checked !== undefined && checked}
+		<div class="menu-item-icon mod-checked" use:useIcon={"check"} />
+	{/if}
 </div>
