@@ -3,7 +3,7 @@
 	import dayjs from "dayjs";
 
 	/**
-	 * Specifies the date value.
+	 * Specifies the date time value.
 	 */
 	export let value: Date | null;
 
@@ -42,10 +42,10 @@
 </script>
 
 <input
-	type="date"
+	type="datetime-local"
 	class:embed
-	value={value ? dayjs(value).format("YYYY-MM-DD") : null}
-	max="9999-12-31"
+	value={value ? dayjs(value).format("YYYY-MM-DDTHH:mm") : null}
+	max="9999-12-31T23:59"
 	on:change={handleChange}
 	on:input={handleInput}
 	on:blur
@@ -57,7 +57,7 @@
 		border: 0;
 		background-color: var(--background-modifier-hover);
 		font-family: var(--font-default);
-		padding-left: var(--size-4-6);
+		padding: 0.1em 0.6em;
 	}
 
 	.embed {
