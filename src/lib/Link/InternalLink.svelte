@@ -43,6 +43,7 @@
 	rel="noopener"
 	on:click={(event) => {
 		event.stopPropagation();
+		event.preventDefault();
 
 		dispatch("open", {
 			linkText,
